@@ -12,6 +12,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val btEnviar: Button = findViewById(R.id.btEnviar)
+        val btLimpar: Button = findViewById(R.id.btLimpar)
+
         val tvResultado: TextView = findViewById(R.id.tvResultado)
         val etNome: EditText = findViewById(R.id.etNome)
 
@@ -21,6 +23,13 @@ class MainActivity : AppCompatActivity() {
             }else{
                 tvResultado.text = "Campo em branco!"
             }
+
+        }
+        btLimpar.setOnClickListener {
+            if (!etNome.text.isEmpty()){
+                etNome.text = null
+            }
+            tvResultado.text = ""
 
         }
     }
