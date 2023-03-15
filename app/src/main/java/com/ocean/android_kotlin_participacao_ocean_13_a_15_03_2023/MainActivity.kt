@@ -18,10 +18,11 @@ class MainActivity : AppCompatActivity() {
         val etNome: EditText = findViewById(R.id.etNome)
 
         btEnviar.setOnClickListener {
-            if (!etNome.text.isEmpty()){
-                tvResultado.text = etNome.text
+            if (etNome.text.isBlank()){
+                etNome.error = "Digite um texto válido"
+
             }else{
-                tvResultado.text = "Campo em branco!"
+                tvResultado.text = etNome.text
             }
 
         }
