@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
 
         btEnviar.setOnClickListener {
             if (etNome.text.isBlank()){
-                etNome.error = "Digite um texto válido"
+                etNome.error = getString(R.string.insert_a_valid_name)
 
             }else{
                 tvResultado.text = etNome.text
@@ -39,6 +39,10 @@ class MainActivity : AppCompatActivity() {
 
         btAbrirNovaTela.setOnClickListener {
             val novaTelaIntent = Intent(this, ResultadoActivity::class.java)
+            val nomeDigitado: String = etNome.text.toString()
+
+            novaTelaIntent.putExtra("NOME_DIGITADO", nomeDigitado)
+
             startActivity(novaTelaIntent)
         }
     }
